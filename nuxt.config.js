@@ -1,7 +1,12 @@
 import { defineNuxtConfig } from "@nuxt/bridge"
 
 export default defineNuxtConfig({
-  bridge: false,
+  bridge: {
+    vite: false,
+    typescript: false,
+    nitro: false,
+    meta: true
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -24,17 +29,28 @@ export default defineNuxtConfig({
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~/plugins/pinia.js'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  buildModules: [
+    '@pinia/nuxt'
+  ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: [
+    '@nuxtjs/axios',
+    '@pinia/nuxt'
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+  axios: {
+    baseURL: 'https://jsonplaceholder.typicode.com/',
+    browserBaseURL: 'https://jsonplaceholder.typicode.com/'
+  }
 })
