@@ -1,20 +1,20 @@
 <script>
 
 import { defineNuxtComponent } from '#imports'
-import { mapState } from "pinia"
+import { useUserStore } from "@/stores/UserStore"
 
 export default defineNuxtComponent({
 
-  async fetch({ $pinia }) {
-    await $pinia.fetchUserByID(1)
+  async fetch() {
+    const userStore = useUserStore()
+    await userStore.fetchUserByID(1)
   },
 
   computed: {
-    ...mapState(useUserStore, {
-      user: (state) => {
-        return state.user
-      }
-    })
+    user() {
+      const userStore = useUserStore()
+      return userStore.user
+    }
   }
 
 })
@@ -23,6 +23,8 @@ export default defineNuxtComponent({
 
 <template>
   <div>
-    {{ user }}
+    SSR Pinia Example
+    <h1>{{ user.name }}</h1>
+    <p>{{ user.email }}</p>
   </div>
 </template>
