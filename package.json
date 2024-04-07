@@ -1,0 +1,22 @@
+{
+  "name": "pinia-nuxt-bridge",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt2",
+    "build": "nuxt2 build",
+    "start": "nuxt2 start",
+    "generate": "nuxt2 generate"
+  },
+  "dependencies": {
+    "core-js": "^3.25.3",
+    "nuxt": "^2.17.3",
+    "vue": "^2.7.10",
+    "vue-server-renderer": "^2.7.10",
+    "vue-template-compiler": "^2.7.10"
+  },
+  "devDependencies": {
+    "@nuxt/bridge": "^3.1.0",
+    "nuxi": "^3.11.1"
+  }
+}
